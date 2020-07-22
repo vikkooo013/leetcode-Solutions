@@ -1,0 +1,26 @@
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        
+        
+        self.rows = len(board)
+        self.cols = len(board[0])
+        self.board=board
+
+        for  row in range(self.rows):
+            for col in range(self.cols):
+                if board[row][col] == word[0]:
+                    if self.dfs(row,col,word[1:]):return True
+        return False
+    
+    def dfs(self,i,j,word):
+        if not word:
+            return True
+        self.board[i][j],origin=-1,self.board[i][j]
+        
+        for x,y in [(i+1,j),(i-1,j),(i,j-1),(i,j+1)]:
+            if 0<= x < self.rows and 0<=y<self.cols and self.board[x][y]==word[0]:
+                if self.dfs(x, y, word[1:]):return True
+                
+        self.board[i][j]=origin
+        return False
+        
