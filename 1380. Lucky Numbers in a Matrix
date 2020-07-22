@@ -1,0 +1,18 @@
+class Solution:
+    def luckyNumbers (self, m: List[List[int]]) -> List[int]:
+        res=[]
+        fin=[]
+        for i in range(len(m)):
+            for j in range(len(m[0])):
+                if m[i][j] == min(m[i]):
+                    for k in range(len(m)):
+                        res.append(m[k][j])
+                    if m[i][j]==max(res):
+                        fin.append(m[i][j])
+                    else:
+                        res=[]
+                        
+                            
+                        
+                        
+        return (fin)
