@@ -1,0 +1,15 @@
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        if n==1:
+            return [0]
+        num=n
+        res=[]
+        while len(res)<=n-2:
+            res.append(-num)
+            res.append(num)
+            num-=1
+        if n%2!=0:
+            res.append(0)
+            return res
+        else:
+            return res
